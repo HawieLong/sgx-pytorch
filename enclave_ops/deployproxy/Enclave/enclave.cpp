@@ -423,8 +423,9 @@ sgx_status_t enclave_store_domainkey (
         }
         printf("Decrypt the serect success\n");
 
-for (int i = 0; i <secret_size; i++)
-printf("hyhyhy %d:%d.\n", i, *((uint8_t*)g_model_keys+i));
+        /*comment it to prevent leaking decrepted information to untrusted world.*/
+//for (int i = 0; i <secret_size; i++)
+//printf("hyhyhy %d:%d.\n", i, *((uint8_t*)g_model_keys+i));
 
         // Once the server has the shared secret, it should be sealed to
         // persistent storage for future use. This will prevents having to
